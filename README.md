@@ -1,6 +1,6 @@
 # ruler
 
-A new Flutter project.
+A Ruler Flutter project.
 
 ## Getting Started
 
