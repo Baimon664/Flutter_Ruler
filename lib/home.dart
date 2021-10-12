@@ -96,6 +96,18 @@ class _HomeState extends State<Home> {
     }
   }
 
+  double _getTop(int idx){
+    if(idx % 100 == 0){
+      return _h/3;
+    }
+    else if(idx%10==0){
+      return _h/4;
+    }
+    else {
+      return _h/5;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -146,10 +158,21 @@ class _HomeState extends State<Home> {
                     height: _h * 2,
                     child: Align(
                       alignment: Alignment.topCenter,
-                      child: Column(
+                      // child: Column(
+                      //   children: [
+                      //     _getBar(idx),
+                      //     _getNum(idx),
+                      //   ],
+                      // ),
+                      child: Stack(
+                        overflow: Overflow.visible,
+                        alignment: Alignment.center,
                         children: [
                           _getBar(idx),
-                          _getNum(idx),
+                          Positioned(
+                            top: _getTop(idx),
+                            child: _getNum(idx),
+                          ),
                         ],
                       ),
                     ),
